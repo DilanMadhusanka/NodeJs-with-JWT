@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const db = require("./app/models")
+
 // simple route
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to dilz application." });
