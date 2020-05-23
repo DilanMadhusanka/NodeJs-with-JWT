@@ -47,7 +47,7 @@ app.listen(PORT, () => {
 })
 
 function initial() {
-    Role.estimatedDocumentCount((err => {
+    Role.estimatedDocumentCount((err, count) => {
         if (!err && count === 0) {
             new Role({
                 name: "user"
@@ -55,6 +55,7 @@ function initial() {
                 if (err) {
                     console.log("error", err);
                 }
+
                 console.log("added 'user' to roles collection");
             });
 
@@ -64,6 +65,7 @@ function initial() {
                 if (err) {
                     console.log("error", err);
                 }
+
                 console.log("added 'moderator' to roles collection");
             });
 
@@ -77,5 +79,5 @@ function initial() {
                 console.log("added 'admin' to roles collection");
             });
         }
-    }));
+    });
 }
